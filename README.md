@@ -1,15 +1,17 @@
-# Consulta de Preços SEFAZ/AL
+# Ferramenta CDBAR para Consulta de Preços em Alagoas
 
-Este projeto consiste em um script Python que automatiza a consulta de preços de produtos na API pública do programa Economiza Alagoas, da Secretaria da Fazenda de Alagoas (SEFAZ/AL). [cite_start]A ferramenta lê uma lista de códigos GTIN (códigos de barras) de uma planilha, busca os preços mais recentes nos municípios configurados e salva os resultados em um novo arquivo Excel[cite: 3].
+Esta é uma ferramenta desenvolvida pela CDBAR em Python para automatizar a consulta de preços de produtos na API pública do programa Economiza Alagoas, mantido pela Secretaria da Fazenda de Alagoas (SEFAZ/AL).
 
-## Funcionalidades
+O principal objetivo é otimizar e escalar o processo de pesquisa de mercado e monitoramento de preços no varejo alagoano, fornecendo dados estratégicos para a tomada de decisão. A ferramenta lê uma lista de códigos GTIN, busca os preços mais recentes nos municípios de interesse e consolida todos os resultados em uma planilha Excel, pronta para análise.
 
-* [cite_start]Consulta de preços de múltiplos produtos (GTINs) de forma automatizada[cite: 3].
-* [cite_start]Busca de dados em um ou mais municípios de Alagoas, configuráveis através do código IBGE[cite: 2].
-* [cite_start]Configuração de dias para a pesquisa de preços retroativa[cite: 2].
-* [cite_start]Exportação dos resultados para um arquivo Excel (`precos_encontrados.xlsx`) para fácil análise[cite: 3].
-* [cite_start]Uso de arquivo `.env` para armazenamento seguro do token da API[cite: 1, 2].
-* [cite_start]Sistema de novas tentativas (retry) para lidar com instabilidades na API[cite: 3].
+## Principais Funcionalidades
+
+* Consulta Automatizada: Processa múltiplos produtos (GTINs) em lote a partir de uma planilha.
+* Busca Geográfica Flexível: Permite configurar um ou mais municípios de Alagoas para a pesquisa (via código IBGE).
+* Pesquisa Retroativa: Define um período em dias para buscar o histórico de preços recente.
+* Exportação de Dados: Salva os resultados (produto, valor, data, estabelecimento, município) em um arquivo .xlsx para fácil manipulação..
+* Segurança: Utiliza um arquivo .env para gerenciar o token da API de forma segura, sem expô-lo no código.
+* Robustez: Implementa um sistema de novas tentativas (retry) para lidar com eventuais instabilidades da API da SEFAZ.
 
 ## Pré-requisitos
 
@@ -53,7 +55,7 @@ O token da API é carregado de forma segura através de um arquivo `.env`.
 1.  Crie um arquivo chamado `.env` na pasta raiz do projeto.
 2.  Dentro dele, adicione a seguinte linha, substituindo `seu_token_aqui` pelo seu token real:
     ```
-    SEFAZ_TOKEN="seu_token_aqui"
+    SEFAZ_TOKEN="seu_token_aqui" - sem aspas
     ```
 
 ### 4. Executar a Consulta
